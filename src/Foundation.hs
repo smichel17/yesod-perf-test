@@ -12,7 +12,7 @@ module Foundation where
 
 import Import.NoFoundation
 import Database.Persist.Sql (ConnectionPool, runSqlPool)
-import Text.Hamlet          (hamletFile)
+import Text.Hamlet          (hamletFileReload)
 import Text.Jasmine         (minifym)
 import Control.Monad.Logger (LogSource)
 
@@ -147,7 +147,7 @@ instance Yesod App where
         pc <- widgetToPageContent $ do
             addStylesheet $ StaticR css_bootstrap_css
             $(widgetFile "default-layout")
-        withUrlRenderer $(hamletFile "templates/default-layout-wrapper.hamlet")
+        withUrlRenderer $(hamletFileReload "templates/default-layout-wrapper.hamlet")
 
     -- The page to be redirected to when authentication is required.
     authRoute
