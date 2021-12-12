@@ -9,6 +9,7 @@
 
 / HomeR GET POST
 /test TestR GET
+/testQQ TestQQR GET
 
 /comments CommentR POST
 
