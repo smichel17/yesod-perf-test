@@ -1,7 +1,7 @@
 STACK_DIR::=.stack-work-devel
-YESOD_FLAGS::=--flag yesod-perf-test:dev #--flag yesod-perf-test:library-only
 GHCI_OPTS::=-fobject-code -O0 -isrc
 GHCI_DUMP::=-ddump-timings -ddump-to-file
+YESOD_FLAGS::=--flag yesod-perf-test:dev #--flag yesod-perf-test:library-only
 
 TIME_GHC_MODULES_BIN::=./time-ghc-modules/time-ghc-modules
 
