@@ -3,7 +3,7 @@ YESOD_FLAGS::=--flag yesod-perf-test:dev #--flag yesod-perf-test:library-only
 GHCI_OPTS::=-fobject-code -O0 -isrc
 GHCI_DUMP::=-ddump-timings -ddump-to-file
 
-$(TIME_GHC_MODULES_BIN)::=./time-ghc-modules/time-ghc-modules
+TIME_GHC_MODULES_BIN::=./time-ghc-modules/time-ghc-modules
 
 setup: $(TIME_GHC_MODULES_BIN) install build
 
