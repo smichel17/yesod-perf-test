@@ -38,3 +38,18 @@ clean-dumps:
 	find . -name "*.dump-timings" -exec rm '{}' \;
 
 .PHONY: setup install build ghcid ghci watch-templates analyze clean-dumps
+*.dump-splices
+
+##
+# Options from earlier experiments to rule out as not needed
+##
+
+# OBJECT_DIR::=$(STACK_DIR)/.ghci-build-artifacts
+# GHCI_OPTS=-fobject-code -outputdir $(OBJECT_DIR) -fno-break-on-exception -fno-break-on-error -v1 -ferror-spans -j
+		# --run="DevelMain.update"
+		# --reload="src/**"
+		# -ddump-splices -ddump-timings
+		# --reload="templates/**"
+		# --target=yesod-perf-test:lib \
+		# --test "DevelMain.update"
+		# --command="stack ghci --work-dir .stack-work-devel --only-main app/DevelMain.hs --ghci-options='-fobject-code -isrc'" \
