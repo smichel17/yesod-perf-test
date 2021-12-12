@@ -32,7 +32,7 @@ ghci:
 	stack ghci --work-dir $(STACK_DIR) --only-main app/main.hs --ghci-options='$(GHCI_OPTS) $(GHCI_DUMP)'
 
 analyze: $(TIME_GHC_MODULES_BIN)
-	xdg-open "$$($(TIME_GHC_MODULES_BIN))"
+	if report="$$($(TIME_GHC_MODULES_BIN))"; then xdg-open "$$report"; fi
 
 clean-dumps:
 	find . -name "*.dump-timings" -exec rm '{}' \;
