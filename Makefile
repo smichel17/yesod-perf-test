@@ -38,7 +38,6 @@ clean-dumps:
 	find . -name "*.dump-timings" -exec rm '{}' \;
 
 .PHONY: setup install build ghcid ghci watch-templates analyze clean-dumps
-*.dump-splices
 
 ##
 # Options from earlier experiments to rule out as not needed
