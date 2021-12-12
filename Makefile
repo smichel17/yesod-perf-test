@@ -1,6 +1,6 @@
 STACK_DIR::=.stack-work-devel
 
-YESOD_FLAGS::=--flag yesod-perf-test:dev --flag yesod-perf-test:library-only
+YESOD_FLAGS::=--flag yesod-perf-test:dev #--flag yesod-perf-test:library-only
 GHCI_OPTS::=-fobject-code -O0 -isrc
 
 ghcid: ## Run the server in fast development mode
