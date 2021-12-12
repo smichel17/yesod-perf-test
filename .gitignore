@@ -20,3 +20,5 @@ cabal.sandbox.config
 *~
 \#*
 yesod-perf-test.cabal
+*.dump-timings
+*.dump-splices

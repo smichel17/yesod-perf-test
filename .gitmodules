@@ -1,0 +1,3 @@
+[submodule "time-ghc-modules"]
+	path = time-ghc-modules
+	url = git@github.com:codedownio/time-ghc-modules.git

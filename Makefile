@@ -2,6 +2,9 @@ STACK_DIR::=.stack-work-devel
 
 YESOD_FLAGS::=--flag yesod-perf-test:dev #--flag yesod-perf-test:library-only
 GHCI_OPTS::=-fobject-code -O0 -isrc
+GHCI_DUMP::=-ddump-splices -ddump-timings -ddump-to-file
+
+$(TIME_GHC_MODULES_BIN)::=./time-ghc-modules/time-ghc-modules
 
 ghcid: ## Run the server in fast development mode
 	stack exec -- ghcid \
@@ -15,12 +18,22 @@ watch-templates:
 	'
 
 ghci:
-	stack ghci --work-dir $(STACK_DIR) --only-main app/main.hs --ghci-options='$(GHCI_OPTS)'
+	stack ghci --work-dir $(STACK_DIR) --only-main app/main.hs --ghci-options='$(GHCI_OPTS) $(GHCI_DUMP)'
+
+$(TIME_GHC_MODULES_BIN):
+	git submodule init
+	git submodule update
 
 install:
 	stack build --install-ghc yesod-bin ghcid
 
 build:
-	stack build --work-dir $(STACK_DIR)
+	stack build --work-dir $(STACK_DIR) # might need to include ghc options here
 
-.PHONY: ghcid ghci watch-templates
+analyze: $(TIME_GHC_MODULES_BIN)
+	xdg-open "$$($(TIME_GHC_MODULES_BIN))"
+
+clean-dumps:
+	find . -name "*.dump-timings" -exec rm '{}' \;
+
+.PHONY: ghcid ghci watch-templates analyze clean-dumps
