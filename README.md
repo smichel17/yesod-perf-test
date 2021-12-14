@@ -1,3 +1,11 @@
+# Yesod-perf-test
+
+The purpose of this repository is to experiment with improving the development experience in Yesod— primarily, speeding up incremental compilation for frontend changes —starting from the stock scaffolding generated with `stack new yesod-perf-test yesodweb/postgres`.
+
+The README from that scaffolding is below.
+
+---
+
 ## Database Setup
 
 After installing Postgres, run:
